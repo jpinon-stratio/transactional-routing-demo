@@ -66,7 +66,7 @@ Clone a car, getting it through RO transactional context:
 curl -X POST http://localhost:8080/rw/cars/new
 ```
 
-Check if car cloned was gotten in RW or in RO db:
+Check if cloned car was gotten from RW or from RO db:
 
 ```
 curl http://localhost:8080/rw/cars
