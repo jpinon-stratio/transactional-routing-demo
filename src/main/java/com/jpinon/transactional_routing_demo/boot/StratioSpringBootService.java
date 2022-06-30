@@ -10,8 +10,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication(scanBasePackages = "com.jpinon.transactional_routing_demo")
 public class StratioSpringBootService {
 
-  public static void main(String[] args) {
-    SpringApplication.run(StratioSpringBootService.class, args);
-  }
+    public static void main(String[] args) {
+        SpringApplication.run(StratioSpringBootService.class, args);
+    }
 
 }

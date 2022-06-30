@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.jpinon.transactional_routing_demo.service.ReadOnlyCarService;
 import com.jpinon.transactional_routing_demo.service.ReadWriteCarService;
 
-import lombok.AllArgsConstructor;
-
 @RestController
 public class CarController {
 

@@ -14,6 +14,6 @@ import lombok.Setter;
 @ConfigurationProperties(prefix = "database.datasource")
 public class DatabaseProperties {
 
-  private DataSourceProperties readwrite;
-  private DataSourceProperties readonly;
+    private DataSourceProperties readwrite;
+    private DataSourceProperties readonly;
 }

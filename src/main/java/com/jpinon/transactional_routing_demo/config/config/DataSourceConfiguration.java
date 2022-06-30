@@ -16,25 +16,25 @@ import com.jpinon.transactional_routing_demo.config.properties.DatabasePropertie
 @Configuration
 public class DataSourceConfiguration {
 
-  @Autowired
-  private DatabaseProperties databaseProperties;
+    @Autowired
+    private DatabaseProperties databaseProperties;
 
-  @Bean
-  public DataSource dataSource() {
-    RoutingDataSource routingDataSource = new RoutingDataSource();
-    Map<Object, Object> targetDataSources = new HashMap<>();
-    targetDataSources.put(DatabaseEnvironment.UPDATABLE, readwriteDataSource());
-    targetDataSources.put(DatabaseEnvironment.READONLY, readonlyDataSource());
-    routingDataSource.setTargetDataSources(targetDataSources);
-    routingDataSource.setDefaultTargetDataSource(readwriteDataSource());
-    return routingDataSource;
-  }
+    @Bean
+    public DataSource dataSource() {
+        RoutingDataSource routingDataSource = new RoutingDataSource();
+        Map<Object, Object> targetDataSources = new HashMap<>();
+        targetDataSources.put(DatabaseEnvironment.UPDATABLE, readwriteDataSource());
+        targetDataSources.put(DatabaseEnvironment.READONLY, readonlyDataSource());
+        routingDataSource.setTargetDataSources(targetDataSources);
+        routingDataSource.setDefaultTargetDataSource(readwriteDataSource());
+        return routingDataSource;
+    }
 
-  public DataSource readonlyDataSource() {
-    return databaseProperties.getReadonly().toHikariDataSource();
-  }
+    public DataSource readonlyDataSource() {
+        return databaseProperties.getReadonly().toHikariDataSource();
+    }
 
-  public DataSource readwriteDataSource() {
-    return databaseProperties.getReadwrite().toHikariDataSource();
-  }
+    public DataSource readwriteDataSource() {
+        return databaseProperties.getReadwrite().toHikariDataSource();
+    }
 }
