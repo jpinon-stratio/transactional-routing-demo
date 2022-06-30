@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+  postgresRw:
+    image: postgres
+    container_name: postgresRw
+    environment:
+      - "POSTGRES_USER=postgres"
+      - "POSTGRES_PASSWORD=postgres"
+      - "POSTGRES_DB=transactional_routing"
+    ports:
+      - "5432:5432"
+
+  postgresRo:
+    image: postgres
+    container_name: postgresRo
+    environment:
+      - "POSTGRES_USER=postgres"
+      - "POSTGRES_PASSWORD=postgres"
+      - "POSTGRES_DB=transactional_routing"
+    ports:
+      - "5433:5432"

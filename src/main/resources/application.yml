@@ -1,0 +1,39 @@
+spring:
+  jpa:
+    hibernate.connection.provider_class: org.hibernate.hikaricp.internal.HikariCPConnectionProvider
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+    hibernate.ddl-auto: none
+    hibernate.jdbc.time_zone: UTC
+    hibernate.types.print.banner: false
+    properties:
+      hibernate.generate_statistics: false
+      hibernate.use_sql_comments: false
+      hibernate.show_sql: false
+      hibernate.jdbc.use_get_generated_keys: true
+      hibernate.temp.use_jdbc_metadata_defaults: false
+      hibernate.auto_quote_keyword: true
+
+database:
+  datasource:
+    readwrite:
+      url: jdbc:postgresql://127.0.0.1:5432/transactional_routing
+      username: postgres
+      password: postgres
+      driver-class-name: org.postgresql.Driver
+      minimumIdle: 5
+      maximumPoolSize: 20
+      idleTimeout: 30000
+      poolName: hikarirw
+      maxLifetime: 2000000
+      connectionTimeout: 30000
+    readonly:
+      url: jdbc:postgresql://127.0.0.1:5433/transactional_routing
+      username: postgres
+      password: postgres
+      driver-class-name: org.postgresql.Driver
+      minimumIdle: 5
+      maximumPoolSize: 20
+      idleTimeout: 30000
+      poolName: hikariro
+      maxLifetime: 2000000
+      connectionTimeout: 30000
