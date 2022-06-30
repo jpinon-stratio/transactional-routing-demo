@@ -1,6 +1,7 @@
 package com.jpinon.transactional_routing_demo.service;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,7 +13,7 @@ import com.jpinon.transactional_routing_demo.repository.JpaCarRepository;
 @Service
 public class ReadWriteCarService {
 
-    private static final Integer DEFAULT_ID = 1;
+    private static final UUID DEFAULT_ID = UUID.fromString("4f990bb0-0eb3-4cbf-8455-7d14d1484501");
 
     private final ReadOnlyCarService readOnlyCarService;
     private final JpaCarRepository jpaCarRepository;

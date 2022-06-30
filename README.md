@@ -42,13 +42,13 @@ First of all check that everything is setup correctly.
 RW db content:
 ```
 curl http://localhost:8080/rw/cars
-[{"id":1,"brand":"Clio","model":"Renault"}]
+[{"brand":"Renault","model":"Clio"}]
 ```
 
 RO db content:
 ```
 curl http://localhost:8080/ro/cars
-[{"id":1,"brand":"Passat","model":"Volkswagen"}]
+[{"brand":"Volkswagen","model":"Passat"}]
 ```
 
 Clone a car, getting it through RO transactional context:
@@ -59,7 +59,7 @@ curl -X POST http://localhost:8080/rw/cars/new
 Check if car cloned was gotten in RW or in RO db:
 ```
 curl http://localhost:8080/rw/cars
-[{"id":1,"brand":"Clio","model":"Renault"},{"id":-47,"brand":"Clio","model":"Renault"}]
+[{"brand":"Renault","model":"Clio"},{"brand":"Renault","model":"Clio"}]
 ```
 
 

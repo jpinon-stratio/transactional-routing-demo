@@ -2,6 +2,7 @@ package com.jpinon.transactional_routing_demo.service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,7 +22,7 @@ public class ReadOnlyCarService {
     }
 
     @Transactional(readOnly = true)
-    public Car getCarById(Integer id) {
+    public Car getCarById(UUID id) {
         return jpaCarRepository.findById(id).orElseThrow(NoSuchElementException::new);
     }
 

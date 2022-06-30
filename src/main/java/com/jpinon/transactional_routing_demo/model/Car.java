@@ -6,6 +6,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
+import java.util.UUID;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,15 +21,15 @@ import lombok.Setter;
 public class Car {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "car_seq_gen")
-    @SequenceGenerator(name = "car_seq_gen", sequenceName = "car_id_seq")
-    private Integer id;
+    @JsonIgnore
+    private UUID id;
 
     private String brand;
 
     private String model;
 
     public Car(Car car) {
+        this.id = UUID.randomUUID();
         this.brand = car.getBrand();
         this.model = car.getModel();
     }

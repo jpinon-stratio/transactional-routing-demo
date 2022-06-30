@@ -1,9 +1,9 @@
 CREATE TABLE Car
 (
-  id      SERIAL PRIMARY KEY,
-  model   VARCHAR,
-  brand   VARCHAR
+  id      UUID PRIMARY KEY,
+  brand   VARCHAR,
+  model   VARCHAR
 );
 
 INSERT INTO Car
-VALUES  (1, 'Volkswagen', 'Passat');
+VALUES  ('4f990bb0-0eb3-4cbf-8455-7d14d1484501', 'Volkswagen', 'Passat');
